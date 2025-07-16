@@ -1,0 +1,111 @@
+{
+  "Budi-Raka": [
+    {
+      "sender": "Raka",
+      "message": "bjfasjf",
+      "time": "00:55"
+    },
+    {
+      "sender": "Budi",
+      "message": "ksafaksl",
+      "time": "00:55"
+    },
+    {
+      "sender": "Raka",
+      "message": "dsfkasfnas",
+      "time": "00:55"
+    },
+    {
+      "sender": "Budi",
+      "message": "fknsdjfnask",
+      "time": "00:55"
+    },
+    {
+      "sender": "Raka",
+      "message": "sdnfasjdnfaskdf",
+      "time": "00:56"
+    },
+    {
+      "sender": "Raka",
+      "message": "haii raka",
+      "time": "01:01"
+    },
+    {
+      "sender": "Raka",
+      "message": "ehh salah ",
+      "time": "01:01"
+    },
+    {
+      "sender": "Raka",
+      "message": "haii budi",
+      "time": "01:01"
+    },
+    {
+      "sender": "Budi",
+      "message": "haii juga raka",
+      "time": "01:02"
+    },
+    {
+      "sender": "Budi",
+      "message": "bagai mana kabar kmu sekarang",
+      "time": "01:02"
+    },
+    {
+      "sender": "Raka",
+      "message": "baik si, klo kmu sendiri bagai mana? ",
+      "time": "01:03"
+    },
+    {
+      "sender": "Budi",
+      "message": "Budi mengirim file: <a href='/uploads/download.png' target='_blank'>download.png</a>",
+      "time": "01:04"
+    },
+    {
+      "sender": "Raka",
+      "message": "kok ga bisa di buka",
+      "time": "01:08"
+    },
+    {
+      "sender": "Budi",
+      "message": "coba ulang",
+      "time": "01:08"
+    },
+    {
+      "sender": "Budi",
+      "message": "Budi mengirim gambar:<br><img src='/uploads/jendela_1.png' style='max-width: 200px;'>",
+      "time": "01:11"
+    },
+    {
+      "sender": "Budi",
+      "message": "mantap",
+      "time": "01:15"
+    }
+  ],
+  "Raka-Budi": [
+    {
+      "sender": "Raka",
+      "message": "Raka mengirim gambar:<br><img src='/uploads/download.png' style='max-width: 200px;'>",
+      "time": "01:06"
+    },
+    {
+      "sender": "Raka",
+      "message": "Raka mengirim gambar:<br><img src='/uploads/download.png' style='max-width: 200px;'>",
+      "time": "01:07"
+    },
+    {
+      "sender": "Raka",
+      "message": "Raka mengirim gambar:<br><img src='/uploads/download.png' style='max-width: 200px;'>",
+      "time": "01:07"
+    },
+    {
+      "sender": "Raka",
+      "message": "Raka mengirim gambar:<br><img src='/uploads/jendela_1.png' style='max-width: 200px;'>",
+      "time": "01:07"
+    },
+    {
+      "sender": "Raka",
+      "message": "Raka mengirim gambar:<br><img src='/uploads/jendela_1.png' style='max-width: 200px;'>",
+      "time": "01:09"
+    }
+  ]
+}

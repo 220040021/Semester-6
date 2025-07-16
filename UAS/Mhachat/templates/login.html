@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Login & Register</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html, body {
+      height: 100%;
+      overflow: hidden;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #00ffcc;
+      background: radial-gradient(ellipse at center, #0d0d1a 0%, #000 100%);
+    }
+
+    canvas#background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 0;
+    }
+
+    .container {
+      display: flex;
+      width: 700px;
+      height: 400px;
+      border: 2px solid #00ffcc;
+      border-radius: 15px;
+      box-shadow: 0 0 25px #8a2be2, 0 0 40px #00ffcc;
+      background-color: rgba(0, 0, 0, 0.85);
+      overflow: hidden;
+      z-index: 2;
+      transition: all 0.6s ease;
+    }
+
+    .left-panel {
+      width: 65%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-right: 2px solid rgb(45, 45, 45);
+      transition: all 0.6s ease;
+      border radius:20px;
+    }
+    .left-panel img {
+      max-width: 90%;
+      max-height: 90%;
+      filter: drop-shadow(0 0 8px #00ffcc);
+    }
+
+    .right-panel {
+      width: 35%;
+      padding: 25px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      transition: all 0.6s ease;
+    }
+    .right-panel h2 {
+      color:rgb(255, 255, 255);
+      margin-bottom: 15px;
+      text-align: center;
+    }
+
+    .right-panel input[type="text"],
+    .right-panel input[type="password"] {
+      width: 100%;
+      padding: 10px 15px;
+      margin: 10px 0;
+      background: transparent;
+      border: 2px solid #00ffcc;
+      border-radius: 10px;
+      color: #fff;
+      font-size: 14px;
+      outline: none;
+      transition: box-shadow 0.3s;
+    }
+    .right-panel input[type="text"]::placeholder,
+    .right-panel input[type="password"]::placeholder {
+      color: #888;
+    }
+    .right-panel input[type="text"]:focus,
+    .right-panel input[type="password"]:focus {
+      box-shadow: 0 0 8px #00ffcc;
+    }
+
+    .right-panel button {
+      width: 48%;
+      padding: 8px;
+      margin: 10px 1%;
+      border: none;
+      border-radius: 8px;
+      background-color: #8a2be2;
+      color:rgb(250, 250, 250);
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .right-panel button:hover {
+      background-color: #00ffcc;
+      color: #000;
+    }
+
+    .button-group {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .or-divider {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 10px 0;
+      color: #aaa;
+      font-size: 12px;
+    }
+    .or-divider hr {
+      flex: 1;
+      border: none;
+      border-top: 1px solid #444;
+    }
+
+    .social-login-icon {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+      justify-content: center;
+    }
+    .social-login-icon img {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      object-fit: cover;
+      filter: drop-shadow(0 0 2px #00ffcc);
+    }
+    .social-login-icon a {
+      color: #4267B2;
+      font-weight: bold;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .forgot {
+      text-align: center;
+      margin-top: 5px;
+    }
+    .forgot a {
+      color: #fff;
+      font-weight: bold;
+      font-size: 13px;
+      text-decoration: none;
+    }
+
+    ul {
+      list-style: none;
+      margin-top: 10px;
+      padding-left: 0;
+      color: #ff66cc;
+      text-align: center;
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        flex-direction: column;
+        width: 90%;
+        height: auto;
+      }
+      .left-panel,
+      .right-panel {
+        width: 100%;
+        border-right: none;
+      }
+      .left-panel {
+        border-bottom: 2px solidrgb(94, 143, 133);
+        padding: 10px;
+      }
+    }
+
+    /* ANIMASI EXPAND */
+    .container.expand .left-panel {
+      width: 0;
+      padding: 0;
+      opacity: 0;
+      overflow: hidden;
+    }
+
+    .container.expand .right-panel {
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="background"></canvas>
+
+  <div class="container" id="formContainer">
+    <div class="left-panel">
+      <img src="/static/1.png" alt="Logo">
+    </div>
+
+    <div class="right-panel">
+      <h2>Mhachat</h2>
+
+      <form method="post">
+        <input type="text" name="username" placeholder="Username" required>
+        <input type="password" name="password" placeholder="Password" required>
+
+        <div class="button-group">
+          <button type="submit" name="action" value="login">Login</button>
+          <button type="submit" name="action" value="register">Register</button>
+        </div>
+
+        <div class="or-divider">
+          <hr><span>OR</span><hr>
+        </div>
+        <div class="social-login-icon">
+          <img src="/static/facebook.png" alt="Facebook Icon">
+          <a href="#">Log in with Facebook</a>
+        </div>
+
+        <p class="forgot"><a href="#">Forgot password?</a></p>
+      </form>
+
+      {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          <ul>{% for msg in messages %}<li>{{ msg }}</li>{% endfor %}</ul>
+        {% endif %}
+      {% endwith %}
+    </div>
+  </div>
+
+  <!-- CANVAS ANIMATION -->
+  <script>
+    const canvas = document.getElementById("background");
+    const ctx = canvas.getContext("2d");
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    resizeCanvas();
+    window.addEventListener("resize", resizeCanvas);
+
+    const stars = [];
+    const total = 120;
+
+    for (let i = 0; i < total; i++) {
+      stars.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        vx: (Math.random() - 0.5) * 0.4,
+        vy: (Math.random() - 0.5) * 0.4
+      });
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = "#00ffcc";
+      ctx.strokeStyle = "rgba(138, 43, 226, 0.2)";
+
+      for (let i = 0; i < total; i++) {
+        const star = stars[i];
+        ctx.beginPath();
+        ctx.arc(star.x, star.y, 1.5, 0, Math.PI * 2);
+        ctx.fill();
+
+        for (let j = i + 1; j < total; j++) {
+          const other = stars[j];
+          const dx = star.x - other.x;
+          const dy = star.y - other.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < 100) {
+            ctx.beginPath();
+            ctx.moveTo(star.x, star.y);
+            ctx.lineTo(other.x, other.y);
+            ctx.stroke();
+          }
+        }
+
+        star.x += star.vx;
+        star.y += star.vy;
+
+        if (star.x < 0 || star.x > canvas.width) star.vx *= -1;
+        if (star.y < 0 || star.y > canvas.height) star.vy *= -1;
+      }
+      requestAnimationFrame(draw);
+    }
+    draw();
+  </script>
+
+  <!-- INTERAKSI: Expand Form -->
+  <script>
+    const container = document.getElementById('formContainer');
+    const inputs = document.querySelectorAll('.right-panel input');
+    const buttons = document.querySelectorAll('.right-panel button');
+
+    inputs.forEach(input => {
+      input.addEventListener('focus', () => {
+        container.classList.add('expand');
+      });
+    });
+
+    buttons.forEach(button => {
+      button.addEventListener('click', () => {
+        container.classList.add('expand');
+      });
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!container.contains(e.target)) {
+        container.classList.remove('expand');
+      }
+    });
+  </script>
+</body>
+</html>

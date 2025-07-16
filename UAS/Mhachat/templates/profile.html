@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Ganti Foto Profil - {{ user }}</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Orbitron', sans-serif;
+      background: linear-gradient(135deg, #0f0f0f, #1c1c1c);
+      color: #eee;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    form {
+      background: linear-gradient(145deg, #1c1c1c, #292929);
+      border: 2px solid #9f00ff;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 0 25px #9f00ff55;
+      width: 90%;
+      max-width: 450px;
+      text-align: center;
+    }
+
+    h2 {
+      color: #9f00ff;
+      margin-bottom: 20px;
+    }
+
+    label {
+      font-size: 14px;
+      color: #ccc;
+    }
+
+    input[type="file"] {
+      margin-top: 15px;
+      padding: 10px;
+      background: #111;
+      border: 1px solid #444;
+      color: #eee;
+      border-radius: 8px;
+      width: 100%;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 10px 25px;
+      background-color: #00ff99;
+      color: #000;
+      border: none;
+      font-weight: bold;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 12px #00ff99;
+    }
+
+    a {
+      display: inline-block;
+      margin-top: 20px;
+      color: #9f00ff;
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.2s ease;
+    }
+
+    a:hover {
+      color: #d0a3ff;
+    }
+
+    .image-preview {
+      margin-top: 20px;
+    }
+
+    .image-preview img {
+      width: 180px;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 100px;
+      border: 2px solid #00ff99;
+      box-shadow: 0 0 15px #00ff99aa;
+    }
+
+    .section-title {
+      font-size: 16px;
+      color: #00ffcc;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <form method="POST" enctype="multipart/form-data">
+    <h2>Ubah Avatar, {{ user }}</h2>
+
+    <!-- Foto Saat Ini -->
+    {% if user_photo_url %}
+    <div class="image-preview">
+      <div class="section-title">Foto saat ini:</div>
+      <img src="{{ user_photo_url }}" alt="Foto saat ini">
+    </div>
+    {% endif %}
+
+    <!-- Upload File -->
+    <label>Pilih gambar baru (jpg, png):</label><br>
+    <input type="file" name="photo" accept="image/*" required onchange="previewImage(event)">
+
+    <!-- Preview Upload -->
+    <div class="image-preview" id="newPreview" style="display: none;">
+      <div class="section-title">Preview upload:</div>
+      <img id="previewImg" src="#" alt="Preview">
+    </div>
+
+    <button type="submit">Upload</button>
+    <br>
+    <a href="{{ url_for('choose_contact') }}">⬅ Kembali ke halaman ini</a>
+  </form>
+
+  <script>
+    function previewImage(event) {
+      const file = event.target.files[0];
+      const reader = new FileReader();
+
+      if (file) {
+        reader.onload = function(e) {
+          const preview = document.getElementById('previewImg');
+          preview.src = e.target.result;
+          document.getElementById('newPreview').style.display = 'block';
+        };
+        reader.readAsDataURL(file);
+      }
+    }
+  </script>
+</body>
+</html>

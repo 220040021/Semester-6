@@ -1,0 +1,12 @@
+{% for contact in contacts %}
+<a href="/chat/{{ user }}/{{ contact }}" class="contact">
+    <div class="avatar">
+        <img src="{{ url_for('static', filename='images/' + contact + '.jpg') }}" alt="{{ contact }}" class="avatar-img">
+    </div>
+    <div class="contact-name">{{ contact.title() }}</div>
+    <div class="three-dots">⋮</div>
+    <div class="dropdown-menu">
+        <a href="#">Arsipkan</a>
+    </div>
+</a>
+{% endfor %}

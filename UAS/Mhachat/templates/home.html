@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>MHACHAT - {{ user }}</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Orbitron', sans-serif;
+      background: linear-gradient(135deg, #0f0f0f, #1c1c1c);
+      color: #eee;
+      height: 100vh;
+      display: flex;
+      overflow: hidden;
+    }
+
+    body.light-mode {
+      background: #fff;
+      color: #111;
+    }
+
+    #particles-js {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      z-index: 0;
+    }
+
+    .neon-border {
+      position: absolute;
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    .neon-top, .neon-bottom {
+      height: 5px;
+      width: 100%;
+      background: linear-gradient(90deg, red, orange, yellow, green, cyan, blue, violet, red);
+      animation: move-horizontal 10s linear infinite;
+    }
+
+    .neon-left, .neon-right {
+      width: 5px;
+      height: 100%;
+      background: linear-gradient(180deg, red, orange, yellow, green, cyan, blue, violet, red);
+      animation: move-vertical 10s linear infinite;
+    }
+
+    .neon-top { top: 0; left: 0; }
+    .neon-bottom { bottom: 0; left: 0; }
+    .neon-left { top: 0; left: 0; position: fixed; }
+    .neon-right { top: 0; right: 0; position: fixed; }
+
+    @keyframes move-horizontal {
+      0% { background-position: 0% 0%; }
+      100% { background-position: 100% 0%; }
+    }
+
+    @keyframes move-vertical {
+      0% { background-position: 0% 0%; }
+      100% { background-position: 0% 100%; }
+    }
+
+    .sidebar {
+      width: 300px;
+      background: #1c1c1c;
+      display: flex;
+      flex-direction: column;
+      z-index: 1;
+      box-shadow: 0 0 20px #0ff;
+    }
+
+    .header {
+      padding: 1rem;
+      font-size: 1.3rem;
+      height: 64px;
+      font-weight: bold;
+      text-align: center;
+      background: linear-gradient(90deg, red, orange, yellow, green, cyan, blue, violet);
+      background-size: 200% auto;
+      animation: animateHeader 5s linear infinite;
+      color: white;
+      text-shadow: 0 0 8px #fff, 0 0 16px #0ff;
+    }
+
+    @keyframes animateHeader {
+      0% { background-position: 0% center; }
+      100% { background-position: 200% center; }
+    }
+
+    .contact-list {
+      flex: 1;
+      overflow-y: auto;
+    }
+
+    .contact {
+      display: flex;
+      align-items: center;
+      padding: 0.75rem 1rem;
+      text-decoration: none;
+      color: #eee;
+      border-bottom: 1px solid #333;
+      transition: background 0.3s ease;
+    }
+
+    .contact:hover {
+      background: #333;
+    }
+
+    .avatar {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin-right: 12px;
+      border: 2px solid #00ffff;
+      box-shadow: 0 0 10px cyan;
+    }
+
+    .avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .contact-name {
+      font-size: 1rem;
+      text-shadow: 0 0 5px red, 0 0 10px orange, 0 0 15px yellow;
+    }
+
+    .main-panel {
+      flex: 1;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      background: url('{{ url_for("static", filename="1.png") }}') center center no-repeat;
+      background-size: 60%;
+      z-index: 1;
+    }
+
+    .main-header {
+      height: 64px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 1rem;
+      background-color: black;
+      box-shadow: 0 0 15px #00ffff;
+    }
+
+    .main-header h2.glitch {
+      position: relative;
+      font-size: 1.5rem;
+      color: white;
+      animation: glitch 5s infinite;
+    }
+
+    .glitch::before,
+    .glitch::after {
+      content: attr(data-text);
+      position: absolute;
+      left: 0;
+      width: 100%;
+      color: #0ff;
+      overflow: hidden;
+    }
+
+    .glitch::before {
+      animation: glitchTop 5s infinite;
+      top: -1px;
+    }
+
+    .glitch::after {
+      animation: glitchBottom 5s infinite;
+      bottom: -1px;
+    }
+
+    @keyframes glitch {
+      0% { text-shadow: 2px 2px red; }
+      50% { text-shadow: -2px -2px cyan; }
+      100% { text-shadow: 2px 2px blue; }
+    }
+
+    @keyframes glitchTop {
+      0% { clip-path: inset(0 0 85% 0); }
+      50% { clip-path: inset(10% 0 50% 0); left: 2px; }
+      100% { clip-path: inset(0 0 85% 0); }
+    }
+
+    @keyframes glitchBottom {
+      0% { clip-path: inset(85% 0 0 0); }
+      50% { clip-path: inset(40% 0 10% 0); left: -2px; }
+      100% { clip-path: inset(85% 0 0 0); }
+    }
+
+    .main-header .features {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .icon-btn, .toggle-mode {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .icon-btn:hover, .toggle-mode:hover {
+      transform: scale(1.2);
+      color: #00ff99;
+    }
+
+    .main-content {
+      position: absolute;
+      top: 55%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: #00ff99;
+      font-size: 2rem;
+      font-weight: bold;
+      text-shadow: 1px 1px 3px #000;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Particles Background -->
+  <div id="particles-js"></div>
+
+  <!-- Neon RGB Borders -->
+  <div class="neon-border neon-top"></div>
+  <div class="neon-border neon-bottom"></div>
+  <div class="neon-border neon-left"></div>
+  <div class="neon-border neon-right"></div>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <div class="header">Welcome, {{ user }}</div>
+    <div class="contact-list">
+      {% for contact in contacts %}
+      <a href="/chat/{{ user }}/{{ contact }}" class="contact">
+        <div class="avatar">
+          <img src="{{ url_for('static', filename='images/' + contact + '.jpg') }}"
+               onerror="this.onerror=null;this.src='{{ url_for('static', filename='images/user.jpg') }}';"
+               alt="{{ contact }}">
+        </div>
+        <div class="contact-name">{{ contact }}</div>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+
+  <!-- Main Panel -->
+  <div class="main-panel">
+    <div class="main-header">
+      <h2 class="glitch" data-text="MHACHAT">MHACHAT</h2>
+      <div class="features">
+        <button class="toggle-mode" onclick="toggleMode()" title="Toggle Mode">🌙</button>
+        <a href="{{ url_for('logout') }}" class="icon-btn" title="Logout"><i class="fas fa-sign-out-alt"></i></a>
+        <a href="{{ url_for('profile') }}" class="icon-btn" title="Profile"><i class="fas fa-cog"></i></a>
+      </div>
+    </div>
+    <div class="main-content"></div>
+  </div>
+
+  <!-- Particles.js -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script>
+    particlesJS("particles-js", {
+      particles: {
+        number: { value: 60 },
+        color: { value: "#ffffff" },
+        shape: { type: "circle" },
+        opacity: { value: 0.3 },
+        size: { value: 3 },
+        move: { enable: true, speed: 2 }
+      },
+      interactivity: {
+        events: { onhover: { enable: true, mode: "repulse" } }
+      }
+    });
+
+    function toggleMode() {
+      document.body.classList.toggle('light-mode');
+      const btn = document.querySelector('.toggle-mode');
+      btn.textContent = document.body.classList.contains('light-mode') ? '☀️' : '🌙';
+    }
+  </script>
+</body>
+</html>

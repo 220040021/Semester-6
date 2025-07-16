@@ -1,0 +1,117 @@
+{
+    "Budi-Gusest": [
+        {
+            "sender": "Budi",
+            "message": "dfasdkfa",
+            "time": "01:50"
+        }
+    ],
+    "Ayu-Budi": [
+        {
+            "sender": "Budi",
+            "message": "p",
+            "time": "01:57"
+        },
+        {
+            "sender": "Ayu",
+            "message": "haii ini siapa",
+            "time": "01:58"
+        },
+        {
+            "sender": "Budi",
+            "message": "budi salam kenal yaa",
+            "time": "01:59"
+        },
+        {
+            "sender": "Ayu",
+            "message": "iyaa salam kenal juga",
+            "time": "01:59"
+        },
+        {
+            "sender": "Budi",
+            "message": "<img src=\"/static/uploads\\Screenshot_2024-12-17_013521.png\" width=\"150\">",
+            "time": "02:04"
+        },
+        {
+            "sender": "Ayu",
+            "message": "itu aplikasi apa",
+            "time": "02:05"
+        }
+    ],
+    "Budi-Guest": [
+        {
+            "sender": "Guest",
+            "message": "hallo",
+            "time": "14:50"
+        },
+        {
+            "sender": "Budi",
+            "message": "hallo juga",
+            "time": "14:51"
+        },
+        {
+            "sender": "Guest",
+            "message": "ini adalah chord dasar guitar",
+            "time": "15:18"
+        },
+        {
+            "sender": "Guest",
+            "message": "ini adalah chor gitar",
+            "time": "15:27"
+        },
+        {
+            "sender": "Guest",
+            "message": "<img src=\"/static/uploads\\download.png\" width=\"150\">",
+            "time": "17:32"
+        }
+    ],
+    "Guest-user1": [
+        {
+            "sender": "Guest",
+            "message": "hallo ",
+            "time": "10:39"
+        },
+        {
+            "sender": "user1",
+            "message": "hallo juga",
+            "time": "10:39"
+        }
+    ],
+    "Guest-mas elon": [
+        {
+            "sender": "Guest",
+            "message": "hallo",
+            "time": "11:15"
+        },
+        {
+            "sender": "mas elon",
+            "message": "hallo ade",
+            "time": "11:29"
+        },
+        {
+            "sender": "Guest",
+            "message": "info loker dong mas elon",
+            "time": "11:29"
+        },
+        {
+            "sender": "mas elon",
+            "message": "<img src=\"/static/uploads\\Screenshot_2025-05-10_110919.png\" width=\"150\">",
+            "time": "12:49"
+        },
+        {
+            "sender": "Guest",
+            "message": "halo",
+            "time": "19:04"
+        },
+        {
+            "sender": "Guest",
+            "message": "<img src=\"/static/uploads\\285_2021_ASUS_TUF_Gaming_-_Graphite_Black.jpg\" width=\"150\">",
+            "time": "19:04"
+        },
+        {
+            "sender": "Guest",
+            "message": "hai",
+            "time": "19:51"
+        }
+    ]
+}
