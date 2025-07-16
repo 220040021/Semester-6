@@ -1,0 +1,27 @@
+[
+    {
+        "nama": "kopi madu",
+        "harga": 20000,
+        "gambar": "uploads\/kopi_686566d689c65.png"
+    },
+    {
+        "nama": "kopi hanggat",
+        "harga": 20000,
+        "gambar": "uploads\/kopi_686566e7cb84c.png"
+    },
+    {
+        "nama": "kopi gula aren",
+        "harga": 23000,
+        "gambar": "uploads\/kopi_686566f962e78.png"
+    },
+    {
+        "nama": "latte",
+        "harga": 30000,
+        "gambar": "uploads\/kopi_686566147f828.png"
+    },
+    {
+        "nama": "kopi es",
+        "harga": 12000,
+        "gambar": "uploads\/kopi_68656fdfec8ae.png"
+    }
+]

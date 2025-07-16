@@ -1,0 +1,53 @@
+[
+    {
+        "menu": "kopi madu",
+        "user": "pramadipa",
+        "komentar": "enak",
+        "waktu": "2025-07-02 19:40:10"
+    },
+    {
+        "menu": "kopi madu",
+        "user": "pramadipa",
+        "komentar": "matap",
+        "waktu": "2025-07-02 19:44:32"
+    },
+    {
+        "menu": "kopi madu",
+        "user": "pramadipa",
+        "komentar": "mantap",
+        "waktu": "2025-07-02 19:50:56"
+    },
+    {
+        "menu": "kopi madu",
+        "user": "pramadipa",
+        "komentar": "wee",
+        "waktu": "2025-07-02 20:17:13"
+    },
+    {
+        "menu": "kopi madu",
+        "user": "pramadipa",
+        "komentar": "apa ini",
+        "waktu": "2025-07-02 20:32:23"
+    },
+    {
+        "menu": "kopi madu",
+        "user": "pramadipa",
+        "komentar": "hallo",
+        "rating": 3,
+        "waktu": "2025-07-02 20:45:04"
+    },
+    {
+        "menu": "kopi hanggat",
+        "user": "pramadipa",
+        "komentar": "mantap kopinya",
+        "rating": 4,
+        "waktu": "2025-07-02 20:45:24"
+    },
+    {
+        "menu": "kopi madu",
+        "user": "pramadipa",
+        "komentar": "mantap",
+        "rating": 5,
+        "waktu": "2025-07-02 20:51:58"
+    }
+]

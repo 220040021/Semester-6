@@ -1,0 +1,2 @@
+<strong>ade:</strong> <script>alert('XSS berhasil!')</script>
+

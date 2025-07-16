@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Review Kopi</title>
+</head>
+<body>
+  <h2>Berikan Reviewmu</h2>
+  <form action="review.php" method="POST">
+    <label for="nama">Nama:</label><br>
+    <input type="text" id="nama" name="nama"><br><br>
+
+    <label for="pesan">Pesan:</label><br>
+    <textarea id="pesan" name="pesan" rows="5" cols="40"></textarea><br><br>
+
+    <input type="submit" value="Kirim Review">
+  </form>
+
+  <hr>
+  <h3>Review Sebelumnya:</h3>
+  <?php
+    if (file_exists("reviews.txt")) {
+        $lines = file("reviews.txt");
+        foreach ($lines as $line) {
+            echo "<p>$line</p>"; // ⚠️ Tidak disaring → Stored XSS!
+        }
+    }
+  ?>
+</body>
+</html>
